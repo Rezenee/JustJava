@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method is called when the order button is clicked.
      */
+    int quantity = 2;
     public void submitOrder(View view) {
         int coffees = 2;
         display(coffees);
@@ -36,15 +37,15 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void increment(View view){
-        int quantity = 1;
-        display(3);
-        displayPrice(15);
+        quantity++;
+        display(quantity);
+        displayPrice(quantity * 5);
     }
 
     public void decrement(View view){
-        int quantity = 1;
-        display(1);
-        displayPrice(5);
+        quantity--;
+        display(quantity);
+        displayPrice(quantity * 5);
     }
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
