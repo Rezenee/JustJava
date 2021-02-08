@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method is called when the order button is clicked.
      */
-    int quantity = 2;
+    int quantity = 0;
     public void submitOrder(View view) {
         int coffees = 2;
         display(coffees);
@@ -43,7 +43,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void decrement(View view){
-        quantity--;
+        if(quantity > 0){
+            quantity--;
+        }
+
         display(quantity);
         displayPrice(quantity * 5);
     }
