@@ -21,9 +21,7 @@ public class MainActivity extends AppCompatActivity {
      */
     int quantity = 0;
     public void submitOrder(View view) {
-        int coffees = 2;
-        display(coffees);
-        displayPrice(coffees * 5);
+        displayPrice(quantity * 5);
     }
     /**
      * This method displays the given quantity value on the screen.
@@ -39,16 +37,13 @@ public class MainActivity extends AppCompatActivity {
     public void increment(View view){
         quantity++;
         display(quantity);
-        displayPrice(quantity * 5);
     }
 
     public void decrement(View view){
         if(quantity > 0){
             quantity--;
         }
-
         display(quantity);
-        displayPrice(quantity * 5);
     }
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
