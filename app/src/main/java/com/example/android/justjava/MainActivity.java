@@ -21,16 +21,22 @@ public class MainActivity extends AppCompatActivity {
      */
     int quantity = 0;
     public void submitOrder(View view) {
-        int price = (quantity * 5);
+        int price = calculatePrice();
         String priceMessage = "Total: $" + price + "\nThank you!";
         displayMessage(priceMessage);
+
+
+    }
+    private int calculatePrice(){
+        int price = quantity * 5;
+        return price;
     }
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private void displayQuantity(int numberOfCoffees) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText("" + numberOfCoffees);
     }
     /**
      * This method displays the given price on the screen.
@@ -38,22 +44,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void increment(View view){
         quantity++;
-        display(quantity);
+        displayQuantity(quantity);
     }
 
     public void decrement(View view){
         if(quantity > 0){
             quantity--;
         }
-        display(quantity);
-    }
-    private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+        displayQuantity(quantity);
     }
 
     private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
     }
 }
