@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method is called when the order button is clicked.
      */
-    int quantity = 0;
+    int quantity = 1;
     public void submitOrder(View view) {
         EditText nameField = (EditText) findViewById(R.id.name_field);
         String name = nameField.getText().toString();
@@ -67,14 +68,21 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void increment(View view){
+        if (quantity == 100){
+            Toast.makeText(this, "You cannot have more than 100 coffees", Toast.LENGTH_SHORT).show();
+            return;
+        }
         quantity++;
         displayQuantity(quantity);
     }
 
     public void decrement(View view){
-        if(quantity > 0){
-            quantity--;
+        if(quantity == 1){
+            Toast.makeText(this, "You cannot less than 1 coffee", Toast.LENGTH_SHORT).show();
+
+            return;
         }
+        quantity --;
         displayQuantity(quantity);
     }
 
