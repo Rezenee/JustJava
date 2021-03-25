@@ -1,5 +1,7 @@
 package com.example.android.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,15 +37,16 @@ public class MainActivity extends AppCompatActivity {
         int price = calculatePrice(hasWhippedCream, hasChocolate);
         String priceMessage = createOrderSummary(name, price, hasWhippedCream, hasChocolate);
         displayMessage(priceMessage);
+
     }
 
     private String createOrderSummary(String name, int price, boolean  whippedCream, boolean hasChocolate){
-        String priceMessage = "Name: " + name;
-        priceMessage += "\nAdd whipped cream? " + whippedCream;
-        priceMessage += "\nAdd chocolate? " + hasChocolate;
-        priceMessage += "\nQuantity " + quantity;
-        priceMessage += "\nTotal: $ " + price;
-        priceMessage += "\nThank you!";
+        String priceMessage = getString(R.string.order_summary_name, name);
+        priceMessage += "\n" + getString(R.string.addWhippedCream) + whippedCream;
+        priceMessage += "\n" + getString(R.string.addChocolate) + hasChocolate;
+        priceMessage += "\n" + getString(R.string.quantity) + quantity;
+        priceMessage += "\n" + getString(R.string.total) + price;
+        priceMessage += "\n" + getString(R.string.thank_you);
         return priceMessage;
     }
     private int calculatePrice(boolean addWhippedCream, boolean addChocolate){
