@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:Xliff="http://schemas.android.com/apk/res-auto">
+    <string name="app_name">Just Java</string>
+    <string name="thank_you">Спасибо!</string>
+    <string name="toppings">Начинки</string>
+    <string name="name">имя</string>
+    <string name="whipped_cream">взбитые сливки</string>
+    <string name="chocolate">шоколад</string>
+    <string name="quantity">количество</string>
+    <string name="order_summary">итог заказа</string>
+    <string name="order">заказ</string>
+    <string name="addChocolate">добавить шоколад? </string>
+    <string name="addWhippedCream">добавить взбитые сливки? </string>
+    <string name="total">итого $</string>
+    <string name="order_summary_name">имя: <Xliff:g id="name" example="Amy">%s</Xliff:g></string>
+</resources>
